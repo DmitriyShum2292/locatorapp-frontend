@@ -1,0 +1,20 @@
+<router-outlet></router-outlet>
+<h2>My coordinates</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Latitude</th>
+            <th>Longitute</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let coordinate of coordinates;c">
+            <td>{{coordinate.id}}</td>
+            <td>{{coordinate.lat}}</td>
+            <td>{{coordinate.lon}}</td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,64 @@
+<router-outlet></router-outlet>
+<h2>My coordinates</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Latitude</th>
+            <th>Longitute</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let coordinate of coordinates;c">
+            <td>{{coordinate.date}}</td>
+            <td>{{coordinate.lat}}</td>
+            <td>{{coordinate.lon}}</td>
+            <td>
+                <button (click)="updateEmployee(employee.id)" class="btn btn-info">Update</button>
+                <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>Trust me</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let trusted of trustedUsers;">
+            <td>{{trusted.id}}</td>
+            <td>{{trusted.email}}</td>
+            <td>
+                <button (click)="coordinateDetails(trusted.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>I trust</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let trusted of usersITrust;">
+            <td>{{trusted.id}}</td>
+            <td>{{trusted.email}}</td>
+            <td>
+                <button (click)="deleteTrustedUser(trusted.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<form>
+    <input type="text" id="email"  [(ngModel)] = "email" name="email" >
+    <input type="submit" name="Add" class="fadeIn fourth" value="Add new" (click) = "addNewTrustedUser()">
+  </form>
+
+  <button (click)="reload()" class="btn btn-info">Update</button>
