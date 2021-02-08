@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './registration/registration.component';
 import { PersonalComponent } from './personal/personal.component';
 import { DetailsComponent } from './personal/details/details.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { DetailsComponent } from './personal/details/details.component';
     RegistrationComponent,
     PersonalComponent,
     DetailsComponent,
+    AboutComponent,
   
   ],
   imports: [

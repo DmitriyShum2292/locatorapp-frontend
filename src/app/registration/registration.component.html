@@ -7,21 +7,17 @@
   <div id="formContent">
     <!-- Tabs Titles -->
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-    </div>
 
     <!-- Login Form -->
     <form>
       <input type="text" id="email" class="fadeIn second" [(ngModel)] = "email" name="email" placeholder="login">
       <input type="password" id="password" class="fadeIn third" [(ngModel)] = "password" name="password" placeholder="password">
-      <input type="submit" name="Login" class="fadeIn fourth" value="Log In" (click) = "doReg()">
+      <input type="submit" name="Register" class="fadeIn fourth" value="Register" (click) = "doReg()">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href="login">Have an account?</a>
     </div>
 
   </div>
