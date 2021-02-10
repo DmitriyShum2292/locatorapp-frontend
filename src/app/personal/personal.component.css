@@ -1,0 +1,41 @@
+
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading div {
+    margin-top: -18px;
+    font-size: 15px;
+}
+.panel-heading div span{
+    margin-left:5px;
+}
+.panel-body{
+    display: none;
+}
+agm-map{
+    height: 500px;
+    width: 600px;
+}
+.map-container {
+    
+    
+    width: 1280px;
+    height: 500px;
+  }
+  
+  .map-frame {
+    border: 2px solid black;
+    height: 100%;
+  }
+  
+  #map {
+    height: 100%;
+  }
+  

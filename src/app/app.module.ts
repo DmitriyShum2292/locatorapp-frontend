@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +10,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { PersonalComponent } from './personal/personal.component';
 import { DetailsComponent } from './personal/details/details.component';
 import { AboutComponent } from './about/about.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -28,7 +28,10 @@ import { AboutComponent } from './about/about.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey:"AIzaSyAGOJVa3ocsbABNEi2ohTto5h28RRxE2xY"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

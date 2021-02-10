@@ -15,6 +15,8 @@ export class DetailsComponent implements OnInit {
   user: User = new User();
   coordinates: any[];
   id: number;
+  coordinate: string;
+  coord: Coordinate = new Coordinate();
 
   constructor(private service: PersonalService,private route: ActivatedRoute,
               private router: Router,private detailService: DetailsService) { }
@@ -31,6 +33,12 @@ export class DetailsComponent implements OnInit {
         console.log(data)
         this.coordinates = data;
       }, error => console.log(error));
+  }
+   go(coordinate: Coordinate):void{
+    
+    this.coordinate = "https://maps.google.com?saddr=Current+Location&daddr="+coordinate.lat+","+coordinate.lon;
+    //window.location.href = this.coordinate;
+    window.open(this.coordinate, "_blank");
   }
 
 }

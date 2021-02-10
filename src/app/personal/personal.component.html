@@ -1,64 +1,151 @@
-<router-outlet></router-outlet>
-<h2>My coordinates</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Latitude</th>
-            <th>Longitute</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let coordinate of coordinates;c">
-            <td>{{coordinate.date}}</td>
-            <td>{{coordinate.lat}}</td>
-            <td>{{coordinate.lon}}</td>
-            <td>
-                <button (click)="updateEmployee(employee.id)" class="btn btn-info">Update</button>
-                <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<h2>Trust me</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let trusted of trustedUsers;">
-            <td>{{trusted.id}}</td>
-            <td>{{trusted.email}}</td>
-            <td>
-                <button (click)="coordinateDetails(trusted.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<h2>I trust</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let trusted of usersITrust;">
-            <td>{{trusted.id}}</td>
-            <td>{{trusted.email}}</td>
-            <td>
-                <button (click)="deleteTrustedUser(trusted.id)" class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<form>
-    <input type="text" id="email"  [(ngModel)] = "email" name="email" >
-    <input type="submit" name="Add" class="fadeIn fourth" value="Add new" (click) = "addNewTrustedUser()">
-  </form>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-  <button (click)="reload()" class="btn btn-info">Update</button>
+<router-outlet></router-outlet>
+
+<div class="container" style="margin-left: 0%; ">
+
+    <button (click)="reload()" class="btn btn-info" style="margin-left: 15px; ">Update all info </button>
+
+    <div class="row">  
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">My coordinates</h3>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Latitude</th>
+                            <th>Longitute</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let coordinate of coordinates;c">
+                            <td>{{coordinate.date}}</td>
+                            <td>{{coordinate.lat}}</td>
+                            <td>{{coordinate.lon}}</td>
+                            <td>
+                                <button (click)="goGoogle(coordinate)" target="_blank" class="btn btn-info">On map(New tab)</button>
+                            </td>
+                            <td>
+                                <button (click)="go(coordinate)" target="_blank" class="btn btn-info">On map</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">  
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Trust me</h3>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let trusted of trustedUsers;">
+                            <td>{{trusted.id}}</td>
+                            <td>{{trusted.email}}</td>
+                            <td>
+                                <button (click)="coordinateDetails(trusted.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>    
+        </div>        
+    </div>            
+                
+    <div class="row">  
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">I trust</h3>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let trusted of usersITrust;">
+                            <td>{{trusted.id}}</td>
+                            <td>{{trusted.email}}</td>
+                            <td>
+                                <button (click)="deleteTrustedUser(trusted.id)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>       
+
+
+    <form style="margin-left: 15px;">
+        <input type="text" id="email"  [(ngModel)] = "email" name="email" >
+        <input type="submit" name="Add" class="btn btn-info" value="Add new" (click) = "addNewTrustedUser()">
+    </form>
+
+    
+    <br>
+
+</div>
+
+<div class="row" style="position: absolute; right: 40px;top: 80px;">  
+    <div class="col-md-6" style="width: 600px;">
+        <div class="panel panel-primary" style="width: 600px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="width: 600px;">Google maps</h3>
+                
+            </div>
+            <agm-map [latitude]="latitude" [longitude]="longitude"  
+                (mapClick)="location($event)"> 
+            <agm-marker [latitude]="latitude" [longitude]="longitude"> 
+            </agm-marker> 
+            </agm-map> 
+        </div>
+    </div>
+</div>        
+
+<div class="row" >  
+    <div class="col-md-6" style="margin: 30px; width: 1280px; height: 500px;">
+        <div class="panel panel-primary" style="width: 1280px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="width: 600px;">Open street maps</h3>
+            </div>
+
+            <div class="map-container" >
+                <div class="map-frame">
+                <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>            
+
+
+
+
+
+   
+
+
+
+
+
+
+  
