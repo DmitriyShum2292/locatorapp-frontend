@@ -10,7 +10,7 @@ import { User } from './user';
 })
 export class RegistrationService {
 
-  regUrl: string = "http://localhost:8080/registration/new";
+  regUrl: string = "http://185.139.70.180:8081/registration/new";
   user: User = new User();
 
   constructor(private http: HttpClient,private loginService: LoginService) { }
@@ -18,6 +18,6 @@ export class RegistrationService {
   createUser(email: string,password: string): Observable<Object>{
     this.user.email = email;
     this.user.password = password;
-    return this.http.post("http://localhost:8080/registration/new",this.user);
+    return this.http.post("http://185.139.70.180:8081/registration/new",this.user);
   }
 }

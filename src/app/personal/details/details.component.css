@@ -16,3 +16,34 @@
 .panel-body{
     display: none;
 }
+
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+agm-map{
+    height: 100%;
+    width: 100%;
+}
+.map-container {
+    
+    
+    width: 600px;
+    height: 500px;
+  }
+  
+  .map-frame {
+    border: 2px solid black;
+    height: 100%;
+  }
+  
+  #map {
+    height: 100%;
+  }
+  

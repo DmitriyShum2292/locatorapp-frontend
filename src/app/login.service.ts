@@ -16,6 +16,6 @@ export class LoginService {
     this.user.email=email;
     this.user.password=password;
     const headers = new HttpHeaders({Authorization:'Basic ' + btoa(email+":"+password)});
-     return this.http.get("http://localhost:8080/registration/login",{headers,responseType:'text' as 'json'});
+     return this.http.get("http://185.139.70.180:8081/registration/login",{headers,responseType:'text' as 'json'});
   }
 }

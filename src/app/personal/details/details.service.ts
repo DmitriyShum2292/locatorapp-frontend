@@ -9,7 +9,7 @@ import { Coordinate } from '../coordinate';
 export class DetailsService {
 
   user: User = new User();
-  private url = "http://localhost:8080/personal/trustedusers";
+  private url = "http://185.139.70.180:8081/personal/trustedusers";
 
   constructor(private http: HttpClient) { }
 

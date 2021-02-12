@@ -3,16 +3,10 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <router-outlet></router-outlet>
-<div class="row">  
-    <div class="col-md-6">
+<div class="sect">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Details</h3>
-                <div class="pull-right">
-                    <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-                        <i class="glyphicon glyphicon-filter"></i>
-                    </span>
-                </div>
             </div>
             <table class="table table-striped">
                 <thead>
@@ -28,11 +22,24 @@
                         <td>{{coordinate.lat}}</td>
                         <td>{{coordinate.lon}}</td>
                         <td>
-                            <button (click)="go(coordinate)" target="_blank" class="btn btn-info">On map</button>
+                            <button (click)="goGoogle(coordinate)" target="_blank" class="btn btn-info" style="font-size:10px ;">New tab</button>
+                            <button (click)="go(coordinate)" target="_blank" class="btn btn-info" style="font-size: 10px;margin-left: 3px;">On map</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
-</div>            
+
+
+        <div class="panel panel-primary" style="height: 300px;margin-left: 10px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" >Google maps</h3>
+                
+            </div>
+            <agm-map [latitude]="latitude" [longitude]="longitude"  
+                (mapClick)="location($event)"> 
+            <agm-marker [latitude]="latitude" [longitude]="longitude"> 
+            </agm-marker> 
+            </agm-map> 
+        </div>
+</div>             

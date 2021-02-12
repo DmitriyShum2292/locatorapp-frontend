@@ -4,6 +4,7 @@ import { User } from 'src/app/registration/user';
 import { Coordinate } from '../coordinate';
 import { PersonalService } from '../personal.service';
 import { DetailsService } from './details.service';
+import { AgmMap } from '@agm/core';
 
 @Component({
   selector: 'app-details',
@@ -17,6 +18,17 @@ export class DetailsComponent implements OnInit {
   id: number;
   coordinate: string;
   coord: Coordinate = new Coordinate();
+
+  private map;
+  latitude: number; 
+  longitude: number;
+
+  public agmMap: AgmMap;
+
+  location(x){ 
+    this.latitude=x.coords.lat; 
+    this.longitude=x.coords.lng; 
+  } 
 
   constructor(private service: PersonalService,private route: ActivatedRoute,
               private router: Router,private detailService: DetailsService) { }
@@ -34,11 +46,18 @@ export class DetailsComponent implements OnInit {
         this.coordinates = data;
       }, error => console.log(error));
   }
-   go(coordinate: Coordinate):void{
-    
+
+  goGoogle(coordinate: Coordinate):void{
     this.coordinate = "https://maps.google.com?saddr=Current+Location&daddr="+coordinate.lat+","+coordinate.lon;
     //window.location.href = this.coordinate;
     window.open(this.coordinate, "_blank");
+    this.latitude = coordinate.lat;
+    this.longitude = coordinate.lon;
+  }
+
+  go(coordinate: Coordinate):void{
+    this.latitude = coordinate.lat;
+    this.longitude = coordinate.lon;
   }
 
 }

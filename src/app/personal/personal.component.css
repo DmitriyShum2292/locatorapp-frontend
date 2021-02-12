@@ -20,14 +20,13 @@
     display: none;
 }
 agm-map{
-    height: 500px;
-    width: 600px;
+    height: 100%;
+    width: 100%;
+    
 }
 .map-container {
-    
-    
-    width: 1280px;
-    height: 500px;
+    height: 100%;
+    width: 100%;
   }
   
   .map-frame {
@@ -38,4 +37,5 @@ agm-map{
   #map {
     height: 100%;
   }
+  
   
