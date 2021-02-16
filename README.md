@@ -1,5 +1,10 @@
 # LocatorFront
 
+frontend on Angular for RESTful locator application
+
+<h1>How it works?</h1>
+The application was created so that the person you trust would have access to your coordinates. The application on the android smartphone sends your coordinates on backend server every hour. Each coordinate is stored for 24 hours.From site on angular we can add trusted user,who can view our coordinates.The application is made for educational purposes only. 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
 ## Development server
