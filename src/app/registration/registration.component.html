@@ -13,6 +13,8 @@
       <input type="text" id="email" class="fadeIn second" [(ngModel)] = "email" name="email" placeholder="login">
       <input type="password" id="password" class="fadeIn third" [(ngModel)] = "password" name="password" placeholder="password">
       <input type="submit" name="Register" class="fadeIn fourth" value="Register" (click) = "doReg()">
+      <br>
+      <div style="color: red;">{{response}}</div>
     </form>
 
     <!-- Remind Passowrd -->
@@ -22,3 +24,4 @@
 
   </div>
 </div>
+

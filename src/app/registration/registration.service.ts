@@ -18,6 +18,6 @@ export class RegistrationService {
   createUser(email: string,password: string): Observable<Object>{
     this.user.email = email;
     this.user.password = password;
-    return this.http.post("http://185.139.70.180:8081/registration/new",this.user);
+    return this.http.post("http://185.139.70.180:8081/registration/new",this.user,{responseType:'text' as 'json'});
   }
 }

@@ -13,6 +13,7 @@ export class RegistrationComponent implements OnInit {
 
   email: string;
   password: string;
+  response: any;
 
   constructor(private registrationService: RegistrationService,private router: Router,) { }
 
@@ -20,11 +21,14 @@ export class RegistrationComponent implements OnInit {
   }
 
   doReg(){
-    this.registrationService.createUser(this.email,this.password).subscribe(data =>{
-      console.log(data);
-    },
-    error => console.log(error));
-    this.router.navigate(['/login']);
+    let resp = this.registrationService.createUser(this.email,this.password);
+    resp.subscribe(data =>{
+      console.log(data)
+      this.response = data;
+      if(this.response == "Success"){
+        this.router.navigate(['/login']);
+      }
+    })
   }
   
 
